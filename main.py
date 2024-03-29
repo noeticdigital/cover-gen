@@ -10,7 +10,7 @@ openai.api_key = OPENAI_API_KEY
 
 def write_cover_letter(full_name, job_title, adv_tech_skills, int_tech_skills, personal_skills, job_description, contact_number, email):
     response = openai.Completion.create(
-        model="gpt-3.5-turbo-instruct	",
+        model="gpt-3.5-turbo-instruct",
         prompt=f"write a cover letter as {full_name}, contact details {email} and {contact_number}, "
                f"applying for the following job vacancy to make him "
                f"an ideal candidate based on the selection criteria and his skills. Yonatan is a {job_title}, "
