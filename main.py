@@ -25,7 +25,6 @@ def write_cover_letter(full_name, job_title, adv_tech_skills, int_tech_skills, p
     )
     return response['choices'][0]['text']
 
-
 st.header("COVER LETTER GENERATOR:")
 st.write("Complete the form below and we'll do our best to bang together a bitchin cover letter for your dream job:")
 
