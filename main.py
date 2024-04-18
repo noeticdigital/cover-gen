@@ -11,7 +11,7 @@ openai.api_key = OPENAI_API_KEY
 def write_cover_letter(full_name, job_title, adv_tech_skills, int_tech_skills, personal_skills, job_description, contact_number, email):
     response = openai.Completion.create(
         model="gpt-3.5-turbo-instruct",
-        prompt=f"write a Qualitative Survey Discussion Guide with {full_name}, contact details {email} and {contact_number}, "
+        prompt=f"write a Qualitative Survey Discussion Guide with {full_name}, main questions, probing questions, closing questions and next steps {email} and {contact_number}, "
                f"applying for the following job vacancy to make him "
                f"an ideal candidate based on the selection criteria and his skills. Yonatan is a {job_title}, "
                f"with advanced {adv_tech_skills} skills, intermediate {int_tech_skills} skills, and personal "
@@ -25,42 +25,19 @@ def write_cover_letter(full_name, job_title, adv_tech_skills, int_tech_skills, p
     )
     return response['choices'][0]['text']
 
-st.header("COVER LETTER GENERATOR:")
-st.write("Complete the form below and we'll do our best to bang together a bitchin cover letter for your dream job:")
+st.header("Qualitative Survey Discussion Guide Generator")
+st.write("Complete the form below and Noetic will generate your discussion guide")
 
 with st.form("Cover Letter Generator", clear_on_submit=False):
     applicant_name = st.text_input("Enter the moderator's introduction and the study's purpose:")
-    contact_number = st.text_input("Contact number: ")
+    contact_number = st.text_input("Enter warm-up questions to ease participants into the discussion:")
     email = st.text_input("Email: ")
     job_title = st.text_input("Enter your job title:")
-    advanced_technical_skills = st_tags(
-        label="Enter your advanced technical skills:",
-        text="Press enter or tap to add more skills",
-        value=[],
-        suggestions=["Python", "Javascript", "Java", "C#", "C++", "Golang", "HTML", "CSS", "Microsoft Office Suite",
-                     "Adobe Suite", "XPLAN", "MYOB"],
-        maxtags=8,
-        key="1"
-    )
-    intermediate_technical_skills = st_tags(
-        label="Enter your intermediate technical skills:",
-        text="Press enter or tap to add more skills",
-        value=[],
-        suggestions=["Python", "Javascript", "Java", "C#", "C++", "Golang", "HTML", "CSS", "Microsoft Office Suite",
-                     "Adobe Suite", "XPLAN", "MYOB"],
-        maxtags=8,
-        key="2"
-    )
-    personal_skills = st_tags(
-        label="Enter your personal skills:",
-        text="Press enter or tap to add more skills",
-        value=[],
-        suggestions=["Able to work under pressure", "Great communication skills", "Team leader", "Team player",
-                     "Fast learner", "Goal driven", "Great attention to detail", "Career driven"],
-        maxtags=8,
-        key="3"
-    )
-    job_description = st.text_area("Paste a few relevant paragraphs from the job you wish to apply for:")
+  
+    ajob_description = st.text_area("Enter probing questions to further delve into topics based on participant responses:")
+    bjob_description = st.text_area("Enter closing questions to wrap up the discussion:")
+    
+    cjob_description = st.text_area("Describe what will be conveyed to participants regarding next steps after the session:")
 
     submitted = st.form_submit_button("Write my damn cover letter!")
     if submitted:
