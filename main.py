@@ -11,7 +11,7 @@ openai.api_key = OPENAI_API_KEY
 def write_cover_letter(full_name, job_title, adv_tech_skills, int_tech_skills, personal_skills, job_description, contact_number, email):
     response = openai.Completion.create(
         model="gpt-3.5-turbo-instruct",
-        prompt=f"write a cover letter as {full_name}, contact details {email} and {contact_number}, "
+        prompt=f"write a Qualitative Survey Discussion Guide with {full_name}, contact details {email} and {contact_number}, "
                f"applying for the following job vacancy to make him "
                f"an ideal candidate based on the selection criteria and his skills. Yonatan is a {job_title}, "
                f"with advanced {adv_tech_skills} skills, intermediate {int_tech_skills} skills, and personal "
@@ -29,7 +29,7 @@ st.header("COVER LETTER GENERATOR:")
 st.write("Complete the form below and we'll do our best to bang together a bitchin cover letter for your dream job:")
 
 with st.form("Cover Letter Generator", clear_on_submit=False):
-    applicant_name = st.text_input("Full Name: ")
+    applicant_name = st.text_input("Enter the moderator's introduction and the study's purpose:")
     contact_number = st.text_input("Contact number: ")
     email = st.text_input("Email: ")
     job_title = st.text_input("Enter your job title:")
