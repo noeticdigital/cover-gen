@@ -22,7 +22,6 @@ def write_cover_letter(applicant_name, ajob_description, bjob_description, cjob_
 # Streamlit page setup
 st.header("Qualitative Survey Discussion Guide Generator")
 st.text("Powered by Noetic Digital")
-st.write("Complete the form below and we will generate your discussion guide")
 
 # URL of the image you want to display
 image_url = 'https://living-best.tech/wp-content/webp-express/webp-images/uploads/2023/07/LivingBest_Logo_CarterGroup-V2.jpg.webp'
