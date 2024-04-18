@@ -12,7 +12,7 @@ def write_cover_letter(applicant_name, ajob_description, bjob_description, cjob_
     response = openai.Completion.create(
         model="gpt-3.5-turbo-instruct",
         prompt=f"write a Qualitative Survey Discussion Guide with main questions{applicant_name}, probing questions {ajob_description}, closing questions {bjob_description} and next steps {cjob_description} and {warm_up}, "
-            
+            ,
         temperature=0.7,
         max_tokens=278,
         top_p=1,
