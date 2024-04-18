@@ -34,7 +34,7 @@ with st.form("Cover Letter Generator", clear_on_submit=False):
     
     cjob_description = st.text_area("Describe what will be conveyed to participants regarding next steps after the session:")
 
-   if st.form_submit_button("Generate Product Concept"):
-        guide_text = write_product_concept(applicant_name, ajob_description, bjob_description, cjob_description, warm_up)
-        st.subheader("Generated Product Concept (English):")
-        st.write(guide_text)
+       if st.form_submit_button("Generate Product Concept"):
+            guide_text = write_product_concept(applicant_name, ajob_description, bjob_description, cjob_description, warm_up)
+            st.subheader("Generated Product Concept (English):")
+            st.write(guide_text)
